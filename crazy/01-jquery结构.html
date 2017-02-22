@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div></div>
+<script>
+    (function(w){
+
+        function jQuery(selector){
+            return new jQuery.fn.init(selector);
+        }
+        //fn就是原型
+        jQuery.fn = jQuery.prototype = {
+            constructor: jQuery
+        };
+        //init是真正的构造函数
+        var init = jQuery.fn.init = function(selector){
+
+        }
+        jQuery.fn.alert = function(param){
+            alert(param);
+        }
+        //构造函数原型和工厂函数原型保持一致
+        init.prototype = jQuery.fn;
+        w.jQuery = w.$ = jQuery;
+    }(window));
+    $("div").alert(10);
+</script>
+</body>
+</html>

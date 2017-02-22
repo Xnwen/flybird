@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        /*(function ( global, factory ) {
+
+        }( window, function () {
+
+        }()));*/
+
+        (function ( global ) {
+
+            // 工厂函数
+            var jQuery = function( selector, context ) {
+                return new jQuery.fn.init( selector, context );
+            };
+
+            // 工厂函数的原型起个别名
+            jQuery.fn = jQuery.prototype = {
+                constuctor: jQuery
+            };
+
+            // 给JQuery工厂函数自身 以及 JQuery工厂函数的原型中添加extend方法，
+            // 以便于对JQuery进行功能扩展。
+            jQuery.extend = jQuery.fn.extend = function () {
+
+            };
+
+            // init是JQuery中真正的构造函数
+            var init = jQuery.fn.init = function( selector, context, root ) {
+
+            };
+
+            // 让构造函数的原型 与 工厂函数的原型保持一致
+            init.prototype = jQuery.fn;
+
+            // 把工厂函数通过两个变量jQuery以及$暴露到全局。
+            window.jQuery = window.$ = jQuery;
+
+        }( window ));
+
+    </script>
+</body>
+</html>

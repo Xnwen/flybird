@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-2.2.0.js"></script>
+</head>
+<body>
+    <div id="div"></div>
+    <script>
+        // JQuery对外暴漏的两个变量，都是工厂函数
+        console.log(jQuery);
+        console.log($);
+
+        // fn 就是 prorotype的简称，相当于$ 是 jQuery的简称
+        console.log($.fn === $.prototype);
+
+        // 原型中的init就是真正的构造函数
+        console.log($.fn.init);
+
+        // new $.fn.init创建实例，然后调用方法，
+        // 成功，说明init就是构造函数。
+        new $.fn.init('#div').css({
+            height: 50,
+            backgroundColor: 'red'
+        });
+    </script>
+</body>
+</html>

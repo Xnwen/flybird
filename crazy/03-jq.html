@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div></div>
+<script>
+    (function(window){
+        function jQuery(selector){
+            return new jQuery.fn.init(selector);
+        }
+        jQuery.fn = jQuery.prototype = {
+            constructor: jQuery
+        };
+        jQuery.extend = jQuery.fn.extend = function(o){
+            for(var key in o){
+                this[key]= o[key];
+            }
+        }
+        var init = jQuery.fn.init = function(){
+
+        }
+        init.prototype = jQuery.fn;
+
+        window.jQuery = window.$ = jQuery;
+    }(window));
+    $.fn.extend({
+        alert:function(param){
+            alert(param);
+            return this;
+        },
+        console:function(param){
+            console.log(param);
+            return this;
+        }
+    });
+    $("div").alert(10);
+</script>
+</body>
+</html>
